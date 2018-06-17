@@ -1,0 +1,308 @@
+homeassistant:
+  name: !secret hass_name
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  unit_system: imperial
+  time_zone: !secret time_zone
+  customize: !include customize.yaml
+
+#####
+# Home Assistant Config Files
+##### 
+group: !include groups.yaml
+automation: !include automations.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
+
+#####
+# Home Assistant Components
+#####
+api:
+  api_password: !secret api_password
+frontend:
+cloud:
+config:
+http:
+  api_password: !secret http_password
+  base_url: !secret http_base_url
+input_boolean:
+  light_automation:
+    initial: on
+    icon: mdi:traffic-light
+  alarm_on:
+    initial: on
+    icon: mdi:alarm-check
+  all_home:
+    icon: mdi:home-heart
+  packages_waiting:
+    icon: mdi:package-variant-closed
+  emily_greeted:
+    # icon: 
+  emily_home:
+  ryan_greeted:
+    # icon: 
+  ryan_home:
+  sleep_mode:
+    initial: off
+    icon: mdi:hotel
+  roomba_run_today:
+    initial: off
+    icon: mdi:robot-vacuum
+  aqi_notified_today:
+    initial: off
+input_number:
+  alarm_clock_hour:
+    name: Hour
+    icon: mdi:timer
+    initial: 6
+    min: 0
+    max: 23
+    step: 1
+    mode: slider
+  alarm_clock_minute:
+    name: Minute
+    icon: mdi:timer
+    initial: 20
+    min: 0
+    max: 59
+    step: 5
+    mode: slider
+updater:
+  include_used_components: true
+discovery:
+history:
+recorder:
+logger:
+  default: info
+logbook:
+map:
+
+#####
+# External Components
+#####
+alexa:
+eight_sleep:
+  username: !secret eight_user
+  password: !secret eight_password
+  partner: true
+fan:
+  - platform: xiaomi_miio
+    host: !secret xiaomi_air_ip
+    token: !secret xiaomi_air_token
+sun:
+sensor:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    monitored_conditions:
+      - temperature
+      - humidity
+      - temperature_max
+      - temperature_min
+      - cloud_cover
+      - precip_probability
+      - precip_intensity
+      - precip_intensity_max
+  # - platform: plex
+  - platform: wsdot
+    api_key: !secret wsdot_api_key
+    travel_time:
+      - id: 43
+        name: Downtown -> SeaTac drive time
+  - platform: time_date
+    display_options:
+      - 'time'
+  - platform: season
+    type: astronomical
+  - platform: template
+    sensors:
+      alarm_clock:
+        friendly_name: Alarm Clock Status
+        value_template: "{{ states.input_boolean.alarm_on.state == 'on' }}"
+        entity_id: input_boolean.alarm_on
+      alarm_clock_hour:
+        value_template: '{{ states.input_number.alarm_clock_hour.state | int }}'
+      alarm_clock_minute:
+        value_template: '{{ states.input_number.alarm_clock_minute.state | int }}'
+      alarm_clock_time:
+        value_template: >-
+          {{ states.sensor.alarm_clock_hour.state }}:
+          {%- if states.sensor.alarm_clock_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.alarm_clock_minute.state }}
+      alarm_clock_time_long:
+        value_template: >-
+          {% if states.sensor.alarm_clock_hour.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.alarm_clock_hour.state }}:
+          {%- if states.sensor.alarm_clock_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.alarm_clock_minute.state }}
+      roomba_battery:
+        friendly_name: 'Roomba battery level'
+        value_template: '{{ states.vacuum.roomba.attributes.battery_level }}'
+        unit_of_measurement: '%'
+      bathroom_motion_sensors:
+        friendly_name: 'Bathroom Motion Sensors'
+        value_template: >-
+          {% if ((is_state('binary_sensor.motion_sensor_158d0002119c02', 'on')) or (is_state('binary_sensor.motion_sensor_158d00022399ea', 'on'))) %}
+            on
+          {% else %}
+            off
+          {% endif %}
+      roomba_activity:
+        friendly_name: 'Roomba Current Activity'
+        value_template: "{{ states.vacuum.roomba.attributes.status }}"
+      roomba_bin_present:
+        friendly_name: 'Roomba Bin Connected'
+        value_template: "{{ states.vacuum.roomba.attributes.bin_present }}"
+      xiaomi_air_filter_life:
+        friendly_name: 'Xiaomi Air Filter % Remaining'
+        value_template: "{{ states.fan.xiaomi_miio_device.filter_life_remaining }}"
+  - platform: lyft
+    client_id: !secret lyft_client_id
+    client_secret: !secret lyft_client_secret
+    start_latitude: !secret latitude
+    start_longitude: !secret longitude
+    end_latitude: 47.623317
+    end_longitude: -122.330080
+    product_ids:
+      - 'lyft'
+      - 'lyft_line'
+      # - 'lyft_plus'
+      # - 'lyft_lux'
+      # - 'lyft_lux_suv'
+      # - 'lyft_premier'
+  - platform: sabnzbd
+    host: !secret container_host
+    port: !secret sabnzbd_port
+    api_key: !secret sabnzbd_api_key
+    monitored_variables:
+      - 'current_status'
+      - 'speed'
+      - 'queue_size'
+  - platform: steam_online
+    api_key: !secret steam_api_key
+    accounts:
+      - !secret steam_account_id
+
+  - platform: xiaomi_miio
+    name: Xiaomi Air Quality Monitor
+    host: !secret xiaomi_air_ip
+    token: !secret xiaomi_air_token
+  # - platform: fedex
+  #   username: !secret fedex_username
+  #   password: !secret fedex_password
+  # - platform: ups
+  #   username: !secret ups_username
+  #   password: !secret ups_password
+  # - platform: template
+  #   sensors:
+  #     alarm_time:
+  #       friendly_name: 'Ryan Alarm Time'
+  #       value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.alarm_hour") | int, states("input_number.alarm_minutes") | int) }}'
+
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_access_key_id
+    aws_secret_access_key: !secret aws_secret_access_key
+    region_name: !secret aws_region_polly
+    voice: Joanna
+  - platform: google
+
+
+apple_tv:
+  - host: !secret apple_tv_host
+    login_id: !secret apple_tv_login_id
+    name: Apple TV
+    start_off: true
+
+device_tracker:
+  - platform: google_maps
+    username: !secret gmaps_user
+    password: !secret gmaps_password
+  # - platform: google_maps
+  #   username: !secret gmaps_user_emily
+  #   password: !secret gmaps_password_emily
+  # - platform: owntracks
+  # - platform: unifi
+  #   host: !secret unifi_cloud_key
+  #   username: !secret unifi_username
+  #   password: !secret unifi_password
+  #   verify_ssl: false
+  #   detection_time: 30
+
+hue:
+media_player:
+  - platform: sonos
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+    cache_path: .spotify-cache
+  - platform: samsungtv
+    host: !secret samsungtv_ip
+    mac: !secret samsungtv_mac
+    name: Samsung TV
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
+notify:
+  - name: rybot
+    platform: telegram
+    # api_key: !secret telegram_api_key
+    chat_id: !secret telegram_chat_id
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id
+      - !secret telegram_user_id_ryan
+      - !secret telegram_user_id_emily
+  - platform: broadcast
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id
+
+vacuum:
+  - platform: roomba
+    host: !secret roomba_ip
+    username: !secret roomba_user
+    password: !secret roomba_password
+
+xiaomi_aqara:
+  discovery_retry: 10
+  gateways:
+    - key: !secret xiaomi_key
+      host: !secret xiaomi_ip
+
+#####
+# Component Graveyard
+#####
+
+# usps:
+#   username: !secret usps_user
+#   password: !secret usps_password
+#   driver: phantomjs
+
+# zwave:
+#   usb_path: /dev/ttyACM0
+
+# mqtt:
+#   broker: !secret mqtt_broker
+#   port: !secret mqtt_port
+#   username: !secret mqtt_user
+#   password: !secret mqtt_password
+
+# camera:
+#   - platform: uvc
+#     nvr: !secret unifi_camera
+#     key: unifi_camera_api_key
+#     password: unifi_camera_password
+
+# - platform: template
+#   sensors:
