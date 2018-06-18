@@ -1,0 +1,13 @@
+  - platform: google_maps
+    username: !secret gmaps_user
+    password: !secret gmaps_password
+  # - platform: google_maps
+  #   username: !secret gmaps_user_emily
+  #   password: !secret gmaps_password_emily
+  # - platform: owntracks
+  # - platform: unifi
+  #   host: !secret unifi_cloud_key
+  #   username: !secret unifi_username
+  #   password: !secret unifi_password
+  #   verify_ssl: false
+  #   detection_time: 30

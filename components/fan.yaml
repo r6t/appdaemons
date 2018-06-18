@@ -1,0 +1,3 @@
+  - platform: xiaomi_miio
+    host: !secret xiaomi_air_ip
+    token: !secret xiaomi_air_token
