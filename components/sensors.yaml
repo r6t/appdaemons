@@ -3,8 +3,8 @@
     monitored_conditions:
       - temperature
       - humidity
-      - temperature_max
-      - temperature_min
+      - temperature_high
+      - temperature_low
       - cloud_cover
       - precip_probability
       - precip_intensity
