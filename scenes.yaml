@@ -61,24 +61,39 @@
         transition: 3
   - name: night_path_phase_one
     entities:
-      light.xiaomi_gateway:
+      # light.xiaomi_gateway:
+      #   state: on
+      #   xy_color: [0.615, 0.372]
+      #   brightnes: 20
+      hue_lightstrip_plus_1:
         state: on
-        xy_color: [0.615, 0.372]
-        brightnes: 20
+        xy_color: [0.545, 0.416]
+        brightness: 15
+        transition: 1
       light.front_left:
         state: on
         xy_color: [0.561, 0.404]
         brightness: 1
-      light.back_left:
-        state: on
-        xy_color: [0.561, 0.404]
-        brightness: 1
-      light.bathroom_2:
+      light.bathroom_1:
         state: on
         brightness: 1
       light.bathroom_3:
         state: on
         brightness: 1
+  - name: night_path_phase_two
+    entities:
+      light.back_left:
+        state: on
+        xy_color: [0.561, 0.404]
+        brightness: 1
+        transition: 3
+      light.bathroom_2:
+        state: on
+        brightness: 1
+      light.bathroom_4:
+        state: on
+        brightness: 1
+        transition: 3
   - name: brsl_red
     entities:
       light.back_right:

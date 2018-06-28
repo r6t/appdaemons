@@ -59,6 +59,14 @@
           {% else %}
             off
           {% endif %}
+      bedside_motion_sensors:
+        friendly_name: 'Bedside Motion Sensors'
+        value_template: >-
+          {% if ((is_state('binary_sensor.motion_sensor_158d0001a9e66c', 'on')) or (is_state('binary_sensor.motion_sensor_158d0002239c8d', 'on'))) %}
+            on
+          {% else %}
+            off
+          {% endif %}
       roomba_activity:
         friendly_name: 'Roomba Current Activity'
         value_template: "{{ states.vacuum.roomba.attributes.status }}"

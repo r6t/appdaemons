@@ -26,9 +26,9 @@ bathroom_motion:
   module: bathroommotion
   class: BathroomMotion
 
-bedroom_motion_night_light:
-  module: bedroommotionnightlight
-  class: BedroomMotionNightLight
+# bedroom_motion_night_light:
+#   module: bedroommotionnightlight
+#   class: BedroomMotionNightLight
 
 dirty_air:
   module: dirtyair
