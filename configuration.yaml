@@ -37,7 +37,7 @@ updater:
 # External Components
 #####
 alexa:
-apple_tv: !include components/apple_tv.yaml
+cast: !include components/cast.yaml
 device_tracker: !include components/device_tracker.yaml
 eight_sleep: !include components/eight_sleep.yaml
 fan: !include components/fan.yaml
