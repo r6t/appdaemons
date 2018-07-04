@@ -30,6 +30,10 @@ bathroom_motion:
 #   module: bedroommotionnightlight
 #   class: BedroomMotionNightLight
 
+camera_motion_to_s3:
+  module: cameramotiontos3
+  class: CameraMotionToS3
+
 dirty_air:
   module: dirtyair
   class: DirtyAir150

@@ -46,6 +46,16 @@ media_player: !include components/media_players.yaml
 nest: !include components/nest.yaml
 notify: !include components/notify.yaml
 sensor: !include components/sensors.yaml
+# mqtt:
+#   broker: !secret mqtt_broker
+#   port: !secret mqtt_port
+#   username: !secret mqtt_user
+#   password: !secret mqtt_password
+
+# camera:
+#   - platform: uvc
+#     nvr: !secret unifi_camera
+shell_command: !include components/shell_command.yaml
 sun:
 telegram_bot: !include components/telegram_bot.yaml
 tts: !include components/tts.yaml
@@ -64,14 +74,5 @@ xiaomi_aqara: !include components/xiaomi_aqara.yaml
 # zwave:
 #   usb_path: /dev/ttyACM0
 
-# mqtt:
-#   broker: !secret mqtt_broker
-#   port: !secret mqtt_port
-#   username: !secret mqtt_user
-#   password: !secret mqtt_password
-
-# camera:
-#   - platform: uvc
-#     nvr: !secret unifi_camera
 #     key: unifi_camera_api_key
 #     password: unifi_camera_password
