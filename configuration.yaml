@@ -51,6 +51,7 @@ sun:
 telegram_bot: !include components/telegram_bot.yaml
 tts: !include components/tts.yaml
 vacuum: !include components/vacuum.yaml
+weather: !include components/weather.yaml
 xiaomi_aqara: !include components/xiaomi_aqara.yaml
 
 #####
