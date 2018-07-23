@@ -37,7 +37,7 @@ updater:
 # External Components
 #####
 alexa:
-cast: !include components/cast.yaml
+cast:
 device_tracker: !include components/device_tracker.yaml
 eight_sleep: !include components/eight_sleep.yaml
 fan: !include components/fan.yaml
@@ -46,15 +46,6 @@ media_player: !include components/media_players.yaml
 nest: !include components/nest.yaml
 notify: !include components/notify.yaml
 sensor: !include components/sensors.yaml
-# mqtt:
-#   broker: !secret mqtt_broker
-#   port: !secret mqtt_port
-#   username: !secret mqtt_user
-#   password: !secret mqtt_password
-
-# camera:
-#   - platform: uvc
-#     nvr: !secret unifi_camera
 shell_command: !include components/shell_command.yaml
 sun:
 telegram_bot: !include components/telegram_bot.yaml
@@ -65,7 +56,15 @@ xiaomi_aqara: !include components/xiaomi_aqara.yaml
 #####
 # Component Graveyard
 #####
+# mqtt:
+#   broker: !secret mqtt_broker
+#   port: !secret mqtt_port
+#   username: !secret mqtt_user
+#   password: !secret mqtt_password
 
+# camera:
+#   - platform: uvc
+#     nvr: !secret unifi_camera
 # usps:
 #   username: !secret usps_user
 #   password: !secret usps_password
