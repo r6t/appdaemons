@@ -9,7 +9,7 @@
       - service: fan.set_speed
         data:
           entity_id: fan.xiaomi_miio_device
-          speed: 'Silent'
+          speed: 'Auto'
       - service: telegram_bot.send_message
         data:
           message: Lights automatically shut off. Want the vacuum to run while you're out?
