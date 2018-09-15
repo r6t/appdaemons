@@ -37,9 +37,7 @@ updater:
 # External Components
 #####
 alexa:
-cast:
 device_tracker: !include components/device_tracker.yaml
-eight_sleep: !include components/eight_sleep.yaml
 fan: !include components/fan.yaml
 hue:
 media_player: !include components/media_players.yaml
@@ -57,6 +55,7 @@ xiaomi_aqara: !include components/xiaomi_aqara.yaml
 #####
 # Component Graveyard
 #####
+# eight_sleep: !include components/eight_sleep.yaml
 # mqtt:
 #   broker: !secret mqtt_broker
 #   port: !secret mqtt_port
@@ -76,3 +75,5 @@ xiaomi_aqara: !include components/xiaomi_aqara.yaml
 
 #     key: unifi_camera_api_key
 #     password: unifi_camera_password
+
+# cast:

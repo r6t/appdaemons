@@ -1,22 +1,22 @@
-apple_tv_from_playing:
-  module: appletvfromplaying
-  class: AppleTVFromPlaying
+# apple_tv_from_playing:
+#   module: appletvfromplaying
+#   class: AppleTVFromPlaying
 
-apple_tv_playing:
-  module: appletvplaying
-  class: AppleTVPlaying
+# apple_tv_playing:
+#   module: appletvplaying
+#   class: AppleTVPlaying
 
-apple_tv_wake_remote:
-  module: appletvwakeremote
-  class: AppleTVWakeRemote
+# apple_tv_wake_remote:
+#   module: appletvwakeremote
+#   class: AppleTVWakeRemote
 
-battery_status_notify:
-  module: batterystatusnotify
-  class: BatteryStatusNotify
+# battery_status_notify:
+#   module: batterystatusnotify
+#   class: BatteryStatusNotify
 
-back_right_sun_light:
-  module: backrightsunlight
-  class: BackRightSunLight
+# back_right_sun_light:
+#   module: backrightsunlight
+#   class: BackRightSunLight
 
 back_to_sleep:
   module: backtosleep
