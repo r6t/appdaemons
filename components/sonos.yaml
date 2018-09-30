@@ -1,0 +1,2 @@
+  media_player:
+    interface_addr: !secret sonos_playbar_ip

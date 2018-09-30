@@ -94,15 +94,15 @@
         state: on
         brightness: 1
         transition: 3
-  - name: brsl_red
-    entities:
-      light.back_right:
-        state: on
-        xy_color: [0.679, 0.306]
-        brightness: 100
-  - name: brsl_blue
-    entities:
-      light.back_right:
-        state: on
-        xy_color: [0.142,0.087]
-        brightness: 100
+  # - name: brsl_red
+  #   entities:
+  #     light.back_right:
+  #       state: on
+  #       xy_color: [0.679, 0.306]
+  #       brightness: 100
+  # - name: brsl_blue
+  #   entities:
+  #     light.back_right:
+  #       state: on
+  #       xy_color: [0.142,0.087]
+  #       brightness: 100

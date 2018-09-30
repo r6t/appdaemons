@@ -1,4 +1,4 @@
-  alarm_arm:
+  empty_place:
     sequence:
       - service: scene.turn_on
         data:

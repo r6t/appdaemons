@@ -1,5 +1,5 @@
 homeassistant:
-  customize: !include customize.yaml
+#  customize: !include customize.yaml
   elevation: !secret elevation
   latitude: !secret latitude
   longitude: !secret longitude
@@ -11,7 +11,7 @@ homeassistant:
 # Home Assistant Config Files
 ##### 
 automation: !include automations.yaml
-group: !include groups.yaml
+# group: !include groups.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml
 
@@ -45,6 +45,7 @@ nest: !include components/nest.yaml
 notify: !include components/notify.yaml
 sensor: !include components/sensors.yaml
 shell_command: !include components/shell_command.yaml
+sonos: !include components/sonos.yaml 
 sun:
 telegram_bot: !include components/telegram_bot.yaml
 tts: !include components/tts.yaml
