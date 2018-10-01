@@ -19,6 +19,7 @@ script: !include scripts.yaml
 # Home Assistant Components
 #####
 api: !include components/api.yaml
+binary_sensor: !include components/binary_sensor.yaml
 cloud:
 config:
 discovery:
@@ -45,7 +46,7 @@ nest: !include components/nest.yaml
 notify: !include components/notify.yaml
 sensor: !include components/sensors.yaml
 shell_command: !include components/shell_command.yaml
-sonos: !include components/sonos.yaml 
+# sonos: !include components/sonos.yaml 
 sun:
 telegram_bot: !include components/telegram_bot.yaml
 tts: !include components/tts.yaml

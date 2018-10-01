@@ -2,6 +2,26 @@
   # Slowly moving remaining Home Assistant Automations to AppDaemon
   ###################################
   
+  - alias: "Temporary Bayesian state change on notify"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.bayesian_sensor_ryan_is_home
+        to: 'on'
+    action:
+      - service: telegram_bot.send_message
+        data:
+          message: "Ryan home Bayesian sensor on."
+
+  - alias: "Temporary Bayesian state change off notify"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.bayesian_sensor_ryan_is_home
+        to: 'off'
+    action:
+      - service: telegram_bot.send_message
+        data:
+          message: "Ryan home Bayesian sensor off."
+
   - alias: "Apple TV Remote Sleep"
     hide_entity: false
     initial_state: 'on'
