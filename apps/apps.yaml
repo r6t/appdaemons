@@ -34,6 +34,14 @@ camera_motion_to_s3:
   module: cameramotiontos3
   class: CameraMotionToS3
 
+den_motion:
+  module: denmotion
+  class: DenMotion
+
+door_motion:
+  module: doormotion
+  class: DoorMotion
+
 dirty_air:
   module: dirtyair
   class: DirtyAir150

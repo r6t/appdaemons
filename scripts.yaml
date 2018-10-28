@@ -24,7 +24,18 @@
     sequence:
       - service: telegram_bot.send_message
         data:
-          message: "ALERT: Front door was opened"
+          message: "Front door was opened"
+
+  alarm_den:
+    sequence:
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.sonos__den
+          media_content_id: 'https://s3-us-west-2.amazonaws.com/castpublic/siren_noise.mp3'
+          media_content_type: music
+      - service: telegram_bot.send_message
+        data:
+          message: "ALERT: Motion detected in den"
 
   # telegram_test:
   #   sequence:
