@@ -20,7 +20,7 @@ script: !include scripts.yaml
 #####
 api: !include components/api.yaml
 binary_sensor: !include components/binary_sensor.yaml
-cloud:
+cloud: !include components/cloud.yaml
 config:
 discovery:
 frontend:
@@ -37,7 +37,6 @@ updater:
 #####
 # External Components
 #####
-alexa:
 device_tracker: !include components/device_tracker.yaml
 fan: !include components/fan.yaml
 hue:
@@ -57,6 +56,7 @@ xiaomi_aqara: !include components/xiaomi_aqara.yaml
 #####
 # Component Graveyard
 #####
+# alexa:
 # eight_sleep: !include components/eight_sleep.yaml
 # mqtt:
 #   broker: !secret mqtt_broker
