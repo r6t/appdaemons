@@ -6,6 +6,9 @@
       - service: input_boolean.turn_off
         data:
           entity_id: input_boolean.ryan_greeted
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.alarm_security
       - service: fan.set_speed
         data:
           entity_id: fan.xiaomi_miio_device

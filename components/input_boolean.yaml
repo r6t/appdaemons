@@ -1,9 +1,12 @@
   light_automation:
     initial: on
     icon: mdi:traffic-light
-  alarm_on:
-    initial: on
+  alarm_clock:
+    initial: off
     icon: mdi:alarm-check
+  alarm_security:
+    initial: off
+    icon: mdi:lock
   all_home:
     icon: mdi:home-heart
   packages_waiting:

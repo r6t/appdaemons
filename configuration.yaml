@@ -43,6 +43,7 @@ hue:
 media_player: !include components/media_players.yaml
 nest: !include components/nest.yaml
 notify: !include components/notify.yaml
+route53: !include components/route53.yaml
 sensor: !include components/sensors.yaml
 shell_command: !include components/shell_command.yaml
 # sonos: !include components/sonos.yaml 

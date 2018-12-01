@@ -110,7 +110,7 @@
       value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state }}'
     condition:
       - condition: state
-        entity_id: input_boolean.alarm_on
+        entity_id: input_boolean.alarm_clock
         state: 'on'
     action:
       service: script.turn_on

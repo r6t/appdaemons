@@ -16,3 +16,22 @@
         prob_given_true: 0.1
         platform: state
         to_state: on
+
+  - platform: bayesian
+    # prior is the inital value assigned to probability.  This value is overwritten by observations, not modified.
+    prior: 0.5
+    name: 'Bayesian Sensor: Emily is home'
+    probability_threshold: 0.8
+    observations:
+      - entity_id: !secret device_tracker_emily_gmaps
+        prob_given_true: 0.8
+        platform: state
+        to_state: home
+      - entity_id: !secret unifi_presence_emily_phone
+        prob_given_true: 0.7
+        platform: state
+        to_state: home
+      - entity_id: group.all_lights
+        prob_given_true: 0.1
+        platform: state
+        to_state: on

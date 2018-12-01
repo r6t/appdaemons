@@ -2,7 +2,8 @@
     filter:
       include_entities:
         - device_tracker.wemo 
-        - input_boolean.alarm_on
+        - input_boolean.alarm_clock
+        - input_boolean.alarm_security
         - light.xiaomi_gateway
       include_domains:
         - scene
