@@ -22,6 +22,7 @@
           # inline_keyboard:
           #   - "Yes:/clean"
           #   - "No:/nope"
+          disable_notification: True
 
   alarm_front_door_empty_place:
     sequence:
@@ -52,6 +53,8 @@
       - service: telegram_bot.send_message
         data:
           message: The Air Filter has {{ states.fan.xiaomi_miio_device.attributes.filter_life_remaining }} % life remaining.
+          disable_notification: True
+
   sleep_sequence:
     sequence:
      - service: scene.turn_on

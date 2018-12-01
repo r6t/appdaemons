@@ -11,6 +11,7 @@
       - service: telegram_bot.send_message
         data:
           message: "Ryan home Bayesian sensor on."
+          disable_notification: True
 
   - alias: "Temporary Bayesian state change off notify"
     trigger:
@@ -21,6 +22,29 @@
       - service: telegram_bot.send_message
         data:
           message: "Ryan home Bayesian sensor off."
+          disable_notification: True
+
+  - alias: "Temporary Bayesian state change on notify"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.bayesian_sensor_emily_is_home
+        to: 'on'
+    action:
+      - service: telegram_bot.send_message
+        data:
+          message: "Emily home Bayesian sensor on."
+          disable_notification: True
+
+  - alias: "Temporary Bayesian state change off notify"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.bayesian_sensor_emily_is_home
+        to: 'off'
+    action:
+      - service: telegram_bot.send_message
+        data:
+          message: "Emily home Bayesian sensor off."
+          disable_notification: True
 
   - alias: "Apple TV Remote Sleep"
     hide_entity: false
