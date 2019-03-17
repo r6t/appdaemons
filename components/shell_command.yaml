@@ -1,7 +1,0 @@
-  shell_component_cwd: 'pwd > /config/shell_component_cwd.txt'
-  # Command to determine cwd that shell_command components are being executed from
-  # as of 0.71.0, this is /usr/src/app
-
-  unifi_camera_snapshot: !secret unifi_snapshot_shell_command
-  #actual command stored in secrets as secrets cannot be included inside shell_command components. sensitve info removed from command and pasted below 
-  #'curl -v -H "Content-Type:application/json" --data "{ \"username\":\"<redacted>\", \"password\":\"<redacted>\" }" http://<redacted>/api/1.1/snapshot -o snap.jpg; aws s3 mv snap.jpg s3://<redacted>/door_motion_`date +%Y%m%d_%H_%M`.jpg'

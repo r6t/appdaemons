@@ -1,82 +1,37 @@
 homeassistant:
-#  customize: !include customize.yaml
-  elevation: !secret elevation
-  latitude: !secret latitude
-  longitude: !secret longitude
-  name: !secret hass_name
-  time_zone: !secret time_zone
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 47.6144
+  longitude: -122.3447
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
   unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Los_Angeles
+  # Customization file
+  customize: !include customize.yaml
 
-#####
-# Home Assistant Config Files
-##### 
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Show the introduction message on startup.
+introduction:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Sensors
+sensor:
+  # Weather prediction
+  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+group: !include groups.yaml
 automation: !include automations.yaml
-# group: !include groups.yaml
-scene: !include scenes.yaml
 script: !include scripts.yaml
-
-#####
-# Home Assistant Components
-#####
-api: !include components/api.yaml
-binary_sensor: !include components/binary_sensor.yaml
-cloud: !include components/cloud.yaml
-config:
-discovery:
-frontend:
-history:
-http: !include components/http.yaml
-input_boolean: !include components/input_boolean.yaml
-input_number: !include components/input_number.yaml
-logger:
-logbook:
-map:
-recorder:
-updater:
-
-#####
-# External Components
-#####
-device_tracker: !include components/device_tracker.yaml
-fan: !include components/fan.yaml
-hue:
-media_player: !include components/media_players.yaml
-nest: !include components/nest.yaml
-notify: !include components/notify.yaml
-route53: !include components/route53.yaml
-sensor: !include components/sensors.yaml
-shell_command: !include components/shell_command.yaml
-# sonos: !include components/sonos.yaml 
-sun:
-telegram_bot: !include components/telegram_bot.yaml
-tts: !include components/tts.yaml
-vacuum: !include components/vacuum.yaml
-weather: !include components/weather.yaml
-xiaomi_aqara: !include components/xiaomi_aqara.yaml
-
-#####
-# Component Graveyard
-#####
-# alexa:
-# eight_sleep: !include components/eight_sleep.yaml
-# mqtt:
-#   broker: !secret mqtt_broker
-#   port: !secret mqtt_port
-#   username: !secret mqtt_user
-#   password: !secret mqtt_password
-
-# camera:
-#   - platform: uvc
-#     nvr: !secret unifi_camera
-# usps:
-#   username: !secret usps_user
-#   password: !secret usps_password
-#   driver: phantomjs
-
-# zwave:
-#   usb_path: /dev/ttyACM0
-
-#     key: unifi_camera_api_key
-#     password: unifi_camera_password
-
-# cast:

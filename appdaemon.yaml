@@ -1,4 +1,3 @@
-secrets: /conf/secrets.yaml
 log:
   logfile: STDOUT
   errorfile: STDERR
@@ -7,8 +6,7 @@ appdaemon:
   plugins:
     HASS:
       type: hass
-      ha_url: !secret http_base_url
-      ha_key: !secret http_password
+      ha_url:
+      token:
 hadashboard:
-  dash_url: !secret http_dashboard_base_url
-  dash_dir: /conf/dashboards
+  dash_url:

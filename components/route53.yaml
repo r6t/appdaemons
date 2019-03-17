@@ -1,6 +1,0 @@
-  aws_access_key_id: !secret aws_access_key_id
-  aws_secret_access_key: !secret aws_secret_access_key
-  zone: !secret aws_r53_home_zone
-  domain: !secret aws_r53_home_domain
-  records:
-    - !secret aws_r53_home_prefix

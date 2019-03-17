@@ -1,3 +1,0 @@
-  username: !secret eight_user
-  password: !secret eight_password
-  partner: true

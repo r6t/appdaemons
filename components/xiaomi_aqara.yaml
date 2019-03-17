@@ -1,4 +1,0 @@
-  discovery_retry: 10
-  gateways:
-    - key: !secret xiaomi_key
-      host: !secret xiaomi_ip
