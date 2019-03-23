@@ -2,3 +2,6 @@ hello_world:
   module: hello
   class: HelloWorld
 
+bathroom_motion:
+  module: bathroommotion
+  class: BathroomMotion
