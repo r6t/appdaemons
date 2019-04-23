@@ -1,0 +1,21 @@
+  fire_in_the_hole:
+    sequence:
+      - service: script.turn_off
+        data:
+          entity_id: script.shitters_quiet
+      - service: light.turn_on
+        data_template:
+          entity_id: light.bathroom
+          brightness: >
+            {% if states.sun.sun.state == 'above_horizon' %}
+              255
+            {% else %}
+              10
+            {% endif %}
+
+  shitters_quiet:
+    sequence:
+      - delay: '00:01:00'
+      - service: light.turn_off
+        data:
+          entity_id: light.bathroom
