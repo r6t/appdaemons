@@ -5,3 +5,7 @@ hello_world:
 bathroom_motion:
   module: bathroommotion
   class: BathroomMotion
+
+roomba_launcher:
+  module: roombalauncher
+  class: RoombaLauncher
