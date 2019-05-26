@@ -25,7 +25,7 @@ api: !include components/api.yaml
 binary_sensor: !include components/binary_sensor.yaml
 cloud: !include components/cloud.yaml
 config:
-discovery:
+discovery: # discovered components listed at bottom of file
 frontend:
 history:
 http: !include components/http.yaml
@@ -37,7 +37,12 @@ map:
 recorder:
 system_health:
 updater:
+
+#####
+# External Components
+#####
 xiaomi_aqara: !include components/xiaomi_aqara.yaml
+
 #####
 # Components automatically added via discovery
 #####
