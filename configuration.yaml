@@ -35,6 +35,7 @@ logger:
 logbook:
 map:
 recorder:
+sensor: !include components/sensors.yaml
 system_health:
 updater:
 
@@ -42,6 +43,7 @@ updater:
 # External Components
 #####
 xiaomi_aqara: !include components/xiaomi_aqara.yaml
+vacuum: !include components/vacuum.yaml
 
 #####
 # Components automatically added via discovery
