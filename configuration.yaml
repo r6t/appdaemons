@@ -30,12 +30,13 @@ frontend:
 history:
 http: !include components/http.yaml
 input_boolean: !include components/input_boolean.yaml
-input_number: !include components/input_number.yaml
+# input_number: !include components/input_number.yaml
 logger:
 logbook:
 map:
 recorder:
 sensor: !include components/sensors.yaml
+sun:
 system_health:
 updater:
 
@@ -44,10 +45,10 @@ updater:
 #####
 xiaomi_aqara: !include components/xiaomi_aqara.yaml
 vacuum: !include components/vacuum.yaml
+sonos:
 
 #####
 # Components automatically added via discovery
 #####
 # hue
 # nest
-# sonos
