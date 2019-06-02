@@ -1,7 +1,3 @@
-hello_world:
-  module: hello
-  class: HelloWorld
-
 bathroom_motion:
   module: bathroommotion
   class: BathroomMotion
@@ -9,3 +5,7 @@ bathroom_motion:
 roomba_launcher:
   module: roombalauncher
   class: RoombaLauncher
+
+wake_sequence:
+  module: wakesequence
+  class: WakeSequence
