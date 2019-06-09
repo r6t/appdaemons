@@ -14,8 +14,6 @@ homeassistant:
 # Home Assistant config files
 #####
 automation: !include automations.yaml
-# group: !include groups.yaml
-scene: !include scenes.yaml
 script: !include scripts.yaml
 
 #####
@@ -43,12 +41,12 @@ updater:
 #####
 # External Components
 #####
-xiaomi_aqara: !include components/xiaomi_aqara.yaml
-vacuum: !include components/vacuum.yaml
+nest: !include components/nest.yaml
 sonos:
+vacuum: !include components/vacuum.yaml
+xiaomi_aqara: !include components/xiaomi_aqara.yaml
 
 #####
 # Components automatically added via discovery
 #####
 # hue
-# nest

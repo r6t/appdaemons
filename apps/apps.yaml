@@ -9,3 +9,6 @@ roomba_launcher:
 wake_sequence:
   module: wakesequence
   class: WakeSequence
+  lights:
+    - light.kitchen
+    - light.hallway
