@@ -13,8 +13,9 @@ homeassistant:
 #####
 # Home Assistant config files
 #####
-automation: !include automations.yaml
-script: !include scripts.yaml
+# all automation moved to appdaemon
+# automation: !include automations.yaml 
+# script: !include scripts.yaml
 
 #####
 # Home Assistant Components
