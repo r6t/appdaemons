@@ -8,13 +8,16 @@ class BathroomMotion(hass.Hass):
         #self.listen_state(self.motion, "sensor.bathroom_motion_sensors")
 
     def motionOn(self, entity, attribute, old, new, kwargs):
-        self.turn_on("script.fire_in_the_hole")
-#        if entity.get_state() == "on":
-#            self.turn_on("script.fire_in_the_hole")
-#        elif entity.get_state() == "off":
-#            self.turn_on("script.shitters_quiet")
-#        else:
-#            self.log("ERROR: unexpected state in motion")
+        sun = self.get_state("sun.sun")
+        if sun == "above_horizon":
+            self.turn_on("light.bathroom", brightness = 255)
+        else:
+            self.turn_on("light.bathroom", brightness = 10)
+        self.run_in(motionOff, 60)
 
     def motionOff(self, entity, attribute, old, new, kwargs):
-        self.turn_on("script.shitters_quiet")
+        occupied = self.get_state("sensor.bathroom_motion_sensors")
+        if occupied == "on":
+            self.run_in(motionOn, 60)
+        else:
+            self.turn_off("light.bathroom")
