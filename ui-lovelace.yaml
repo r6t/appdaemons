@@ -1,0 +1,110 @@
+title: Rose Block
+views:
+  - cards:
+      - type: media-control
+        entity: media_player.sonos_playbar
+      - type: thermostat
+        entity: climate.living_room
+        name: Nest
+        theme: Backend-selected
+      - type: media-control
+        entity: media_player.sonos_bedroom
+      - type: media-control
+        entity: media_player.sonos_den
+      - type: entities
+        entities:
+          - input_boolean.light_automation
+          - input_boolean.security_alerts
+          - vacuum.roomba
+        title: Robots
+    badges: []
+    panel: false
+    title: Smart AF
+    path: default_view
+  - cards:
+      - type: light
+        entity: light.hallway
+        name: Hallway
+      - type: light
+        entity: light.kitchen
+        name: Kitchen
+      - type: light
+        entity: light.bathroom
+        name: Bathroom
+      - type: light
+        entity: light.living_room
+        name: Living Room
+      - type: light
+        entity: light.bedroom
+        name: Bedroom
+      - type: entities
+        entities:
+          - light.hall_light_1
+          - light.bathroom_light_1
+          - light.bed_lightstrip
+          - light.hall_light_3
+          - light.bathroom_light_4
+          - light.lamp
+          - light.shower_light
+          - light.hall_light_2
+          - light.bathroom_light_3
+          - light.nightstand_light
+          - light.kitchen_light_2
+          - light.kitchen_light_1
+          - light.bathroom_light_2
+          - light.desk_lightstrip
+          - light.bloom
+          - light.bedroom
+          - light.hallway
+          - light.kitchen
+          - light.living_room
+          - light.den
+          - light.bathroom
+          - light.gateway_light_34ce00908c42
+    badges: []
+    title: Lights
+    path: lights
+    icon: ''
+    panel: false
+  - badges:
+      - binary_sensor.bayesian_sensor_emily_is_home
+      - binary_sensor.bayesian_sensor_ryan_is_home
+      - binary_sensor.updater
+      - binary_sensor.living_room_thermostat_is_using_emergency_heat
+      - binary_sensor.via_6_away
+      - binary_sensor.living_room_thermostat_is_locked
+      - binary_sensor.living_room_thermostat_online
+      - binary_sensor.living_room_thermostat_has_leaf
+      - binary_sensor.living_room_thermostat_fan
+      - binary_sensor.motion_sensor_158d00022399ea
+      - binary_sensor.motion_sensor_158d0002119c02
+      - binary_sensor.motion_sensor_158d0002244f18
+      - binary_sensor.door_window_sensor_158d0001b714ad
+      - binary_sensor.motion_sensor_158d0002239c8d
+      - binary_sensor.door_window_sensor_158d00029b71d5
+      - binary_sensor.remote_ui
+      - sensor.xiaomi_air_filter_life
+      - sensor.bedside_motion_sensors
+      - sensor.roomba_activity
+      - sensor.bathroom_motion_sensors
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_temperature
+      - sensor.dark_sky_precip_probability
+      - sensor.dark_sky_cloud_coverage
+      - sensor.dark_sky_precip_intensity
+      - sensor.living_room_thermostat_humidity
+      - sensor.living_room_thermostat_temperature
+      - sensor.living_room_thermostat_operation_mode
+      - sensor.living_room_thermostat_hvac_state
+      - sensor.living_room_thermostat_target
+      - sensor.via_6_eta
+      - sensor.illumination_34ce00908c42
+      - sun.sun
+    cards:
+      - type: media-control
+        entity: media_player.living_room_tv
+      - type: media-control
+        entity: media_player.kitchen_display
+    panel: false
+    title: Sensors
+    path: sensors

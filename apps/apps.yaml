@@ -12,3 +12,4 @@ wake_sequence:
   lights:
     - light.kitchen
     - light.hallway
+    - light.lamp

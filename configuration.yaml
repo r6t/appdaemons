@@ -32,6 +32,7 @@ input_boolean: !include components/input_boolean.yaml
 # input_number: !include components/input_number.yaml
 logger:
 logbook:
+lovelace: !include components/lovelace.yaml
 map:
 recorder:
 sensor: !include components/sensors.yaml
