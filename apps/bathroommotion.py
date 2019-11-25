@@ -8,16 +8,20 @@ class BathroomMotion(hass.Hass):
         #self.listen_state(self.motion, "sensor.bathroom_motion_sensors")
 
     def motionOn(self, entity, attribute, old, new, kwargs):
-        sun = self.get_state("sun.sun")
+        sun = self.entities.sun.sun.state
         if sun == "above_horizon":
             self.turn_on("light.bathroom", brightness = 255)
         else:
-            self.turn_on("light.bathroom", brightness = 10)
+            self.turn_on("light.bathroom", brightness = 155)
         self.run_in(motionOff, 60)
 
     def motionOff(self, entity, attribute, old, new, kwargs):
         occupied = self.get_state("sensor.bathroom_motion_sensors")
+        lap = false
         if occupied == "on":
-            self.run_in(motionOn, 60)
+            self.run_in(motionOn, 30)
+        elif lap == false:
+            lap = true
+            self.run_in(motionOn, 30)
         else:
             self.turn_off("light.bathroom")

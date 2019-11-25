@@ -2,14 +2,26 @@ bathroom_motion:
   module: bathroommotion
   class: BathroomMotion
 
+global:
+  module: global
+  class: Global
+  
 roomba_launcher:
   module: roombalauncher
   class: RoombaLauncher
+  constrain_presence: noone
+  dependencies: global
+
+telegram_bot:
+  module: telegrambot
+  class: TelegramBotEventListener
 
 wake_sequence:
   module: wakesequence
   class: WakeSequence
+  constrain_start_time: "04:00:00"
+  constrain_end_time: "21:00:00"
   lights:
+    - light.bed_lightstrip
     - light.kitchen
-    - light.hallway
     - light.lamp

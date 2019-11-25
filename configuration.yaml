@@ -1,5 +1,5 @@
 #####
-# r6t's Home Assistant base config
+# r6t's Home Assistant base config. Active components not configured here were automatically added via Home Assistant discovery. Example: hue lights
 #####
 homeassistant:
 #  customize: !include customize.yaml
@@ -24,7 +24,8 @@ api: !include components/api.yaml
 binary_sensor: !include components/binary_sensor.yaml
 cloud: !include components/cloud.yaml
 config:
-discovery: # discovered components listed at bottom of file
+conversation:
+discovery:
 frontend:
 history:
 http: !include components/http.yaml
@@ -34,6 +35,7 @@ logger:
 logbook:
 lovelace: !include components/lovelace.yaml
 map:
+notify: !include components/notify.yaml
 recorder:
 sensor: !include components/sensors.yaml
 sun:
@@ -43,12 +45,9 @@ updater:
 #####
 # External Components
 #####
+camera: !include components/camera.yaml
 nest: !include components/nest.yaml
 sonos:
+telegram_bot: !include components/telegram_bot.yaml
 vacuum: !include components/vacuum.yaml
-xiaomi_aqara: !include components/xiaomi_aqara.yaml
 
-#####
-# Components automatically added via discovery
-#####
-# hue

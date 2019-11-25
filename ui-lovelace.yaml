@@ -17,6 +17,12 @@ views:
           - input_boolean.security_alerts
           - vacuum.roomba
         title: Robots
+      - type: weather-forecast
+        entity: weather.via6
+        #      - type: camera-preview
+        #        entity: camera.n1902_hall
+        #      - type: camera-preview
+        #        entity: camera.n1902_patio
     badges: []
     panel: false
     title: Smart AF
@@ -53,6 +59,8 @@ views:
           - light.kitchen_light_1
           - light.bathroom_light_2
           - light.desk_lightstrip
+          - light.hue_desk_left
+          - light.hue_desk_right
           - light.bloom
           - light.bedroom
           - light.hallway
@@ -60,15 +68,12 @@ views:
           - light.living_room
           - light.den
           - light.bathroom
-          - light.gateway_light_34ce00908c42
     badges: []
     title: Lights
     path: lights
     icon: ''
     panel: false
   - badges:
-      - binary_sensor.bayesian_sensor_emily_is_home
-      - binary_sensor.bayesian_sensor_ryan_is_home
       - binary_sensor.updater
       - binary_sensor.living_room_thermostat_is_using_emergency_heat
       - binary_sensor.via_6_away
@@ -76,17 +81,23 @@ views:
       - binary_sensor.living_room_thermostat_online
       - binary_sensor.living_room_thermostat_has_leaf
       - binary_sensor.living_room_thermostat_fan
-      - binary_sensor.motion_sensor_158d00022399ea
-      - binary_sensor.motion_sensor_158d0002119c02
-      - binary_sensor.motion_sensor_158d0002244f18
-      - binary_sensor.door_window_sensor_158d0001b714ad
-      - binary_sensor.motion_sensor_158d0002239c8d
-      - binary_sensor.door_window_sensor_158d00029b71d5
       - binary_sensor.remote_ui
-      - sensor.xiaomi_air_filter_life
-      - sensor.bedside_motion_sensors
-      - sensor.roomba_activity
+      - binary_sensor.motion_sensor_bathroom
+      - sensor.motion_sensor_bathroom_battery_level
+      - binary_sensor.motion_sensor_bed_emily
+      - sensor.motion_sensor_bed_emily_battery_level
+      - binary_sensor.motion_sensor_bed_ryan
+      - sensor.motion_sensor_bed_ryan_battery_level
+      - binary_sensor.motion_sensor_shower
+      - sensor.motion_sensor_shower_battery_level
+      - binary_sensor.window_door_sensor_bedroom
+      - sensor.window_door_sensor_bedroom_battery_life
+      - binary_sensor.window_door_sensor_front
+      - sensor.window_door_sensor_front_battery_life
       - sensor.bathroom_motion_sensors
+      - sensor.bedside_motion_sensors
+      - sensor.xiaomi_air_filter_life
+      - sensor.roomba_activity
       - sensor.dark_sky_humidity
       - sensor.dark_sky_temperature
       - sensor.dark_sky_precip_probability
@@ -98,7 +109,6 @@ views:
       - sensor.living_room_thermostat_hvac_state
       - sensor.living_room_thermostat_target
       - sensor.via_6_eta
-      - sensor.illumination_34ce00908c42
       - sun.sun
     cards:
       - type: media-control
