@@ -20,7 +20,7 @@ wake_sequence:
   module: wakesequence
   class: WakeSequence
   constrain_start_time: "04:00:00"
-  constrain_end_time: "21:00:00"
+  constrain_end_time: "07:59:59"
   lights:
     - light.bed_lightstrip
     - light.kitchen

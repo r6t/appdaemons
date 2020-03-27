@@ -35,8 +35,10 @@ logger:
 logbook:
 lovelace: !include components/lovelace.yaml
 map:
+mobile_app:
 notify: !include components/notify.yaml
 recorder:
+scene: !include scenes.yaml
 sensor: !include components/sensors.yaml
 sun:
 system_health:
@@ -46,6 +48,7 @@ updater:
 # External Components
 #####
 camera: !include components/camera.yaml
+light: !include components/nanoleaf.yaml
 nest: !include components/nest.yaml
 sonos:
 telegram_bot: !include components/telegram_bot.yaml

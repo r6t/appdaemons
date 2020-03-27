@@ -11,4 +11,4 @@ class WakeSequence(hass.Hass):
         if soundcheck == "playing":
             self.turn_off("light.hallway")
             for x in self.args["lights"]:
-                self.turn_on(x, brightness = 220, rgb_color = [255,207,120], transition = 5)
+                self.turn_on(x, brightness = 220, rgb_color = [255,207,120], transition = 15)
