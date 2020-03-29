@@ -53,4 +53,3 @@ nest: !include components/nest.yaml
 sonos:
 telegram_bot: !include components/telegram_bot.yaml
 vacuum: !include components/vacuum.yaml
-

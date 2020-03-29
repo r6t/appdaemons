@@ -17,11 +17,18 @@ telegram_bot:
   class: TelegramBotEventListener
 
 wake_sequence:
+  alarm_speaker: media_player.sonos_den
   module: wakesequence
   class: WakeSequence
   constrain_start_time: "04:00:00"
-  constrain_end_time: "07:59:59"
+  constrain_end_time: "22:59:59"
   lights:
     - light.bed_lightstrip
     - light.kitchen
     - light.lamp
+  lights_ensure_off:
+    - light.hallway
+  thermostat: climate.living_room
+  thermostat_mode: heat
+  thermostat_temp: 73
+  trigger: binary_sensor.ryan_bed_motion_sensor
