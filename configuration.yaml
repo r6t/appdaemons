@@ -1,55 +1,11 @@
-#####
-# r6t's Home Assistant base config. Active components not configured here were automatically added via Home Assistant discovery. Example: hue lights
-#####
-homeassistant:
-#  customize: !include customize.yaml
-  elevation: !secret elevation
-  latitude: !secret latitude
-  longitude: !secret longitude
-  name: !secret hass_name
-  time_zone: !secret time_zone
-  unit_system: imperial
+# Loads default set of integrations. Do not remove.
+default_config:
 
-#####
-# Home Assistant config files
-#####
-# all automation moved to appdaemon
-# automation: !include automations.yaml 
-# script: !include scripts.yaml
-
-#####
-# Home Assistant Components
-#####
-api: !include components/api.yaml
-binary_sensor: !include components/binary_sensor.yaml
-cloud: !include components/cloud.yaml
-config:
-conversation:
-discovery:
+# Load frontend themes from the themes folder
 frontend:
-history:
-http: !include components/http.yaml
-input_boolean: !include components/input_boolean.yaml
-# input_number: !include components/input_number.yaml
-logger:
-logbook:
-lovelace: !include components/lovelace.yaml
-map:
-mobile_app:
-notify: !include components/notify.yaml
-recorder:
-scene: !include scenes.yaml
-sensor: !include components/sensors.yaml
-sun:
-system_health:
-updater:
+  themes: !include_dir_merge_named themes
 
-#####
-# External Components
-#####
-camera: !include components/camera.yaml
-light: !include components/nanoleaf.yaml
-nest: !include components/nest.yaml
-sonos:
-telegram_bot: !include components/telegram_bot.yaml
-vacuum: !include components/vacuum.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
