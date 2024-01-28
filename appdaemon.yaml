@@ -1,10 +1,10 @@
-secrets: /conf/secrets.yaml
+secrets: /config/secrets.yaml
 appdaemon:
   threads: 10
   plugins:
     HASS:
       type: hass
-  #app_dir: /conf/apps/
+  #app_dir: /config/apps/
   elevation: !secret elevation
   latitude: !secret latitude
   longitude: !secret longitude
