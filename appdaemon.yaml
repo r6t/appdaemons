@@ -1,14 +1,3 @@
-secrets: /config/secrets.yaml
-appdaemon:
-  threads: 10
-  plugins:
-    HASS:
-      type: hass
-  #app_dir: /config/apps/
-  elevation: !secret elevation
-  latitude: !secret latitude
-  longitude: !secret longitude
-  time_zone: !secret time_zone
-# hadashboard:
-#   dash_url: !secret http_dashboard_base_url
-#   dash_dir: /conf/dashboards
+log_level: info
+system_packages:
+python_packages:
