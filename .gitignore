@@ -1,0 +1,5 @@
+secrets.yaml
+*.db
+*.db*
+*.log
+*.log*
