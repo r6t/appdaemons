@@ -5,7 +5,7 @@ class MorningRoutine(hass.Hass):
 
     def initialize(self):
         # Schedule the time for morning routine to start
-        time = datetime.time(7, 0, 0)
+        time = datetime.time(18, 0, 4)
         self.run_daily(self.start_morning_routine, time)
 
     def start_morning_routine(self, kwargs):
