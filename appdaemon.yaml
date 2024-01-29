@@ -1,3 +1,8 @@
 log_level: info
 system_packages:
 python_packages:
+
+elevation: !secret elevation
+latitude: !secret latitude
+longitude: !secret longitude
+time_zone: !secret time_zone
