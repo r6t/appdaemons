@@ -6,14 +6,18 @@ class MorningRoutine(hass.Hass):
     def initialize(self):
         # Fetch the hour and minute from input numbers, ensuring they are integers
         try:
-            hour = int(self.get_state("input_number.alarm_clock_hour"))
-            minute = int(self.get_state("input_number.alarm_clock_minute"))
+            hour = self.get_state("input_number.alarm_clock_hour")
+            if not isinstance(hour, (int, float)):
+                hour = int(hour)  # Try to convert it to an integer if possible
+            minute = self.get_state("input_number.alarm_clock_minute")
+            if not isinstance(minute, (int, float)):
+                minute = int(minute)  # Try to convert it to an integer if possible
         except ValueError as e:
-            self.log(f"Error fetching input_number.alarm_clock_* values: {e}")
+            self.log(f"Error fetching input numbers: {e}")
             return  # Exit the initialization if there's an error
         
-        # Create a time object using the fetched values
-        scheduled_time = datetime.time(hour, minute, 0)
+        # Create a time object using the fetched values, ensuring they are integers
+        scheduled_time = datetime.time(int(hour), int(minute), 0)
         
         # Schedule the morning routine based on the fetched and calculated time
         self.run_daily(self.start_morning_routine, scheduled_time)
