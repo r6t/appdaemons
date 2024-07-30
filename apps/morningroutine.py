@@ -4,30 +4,24 @@ import datetime
 class MorningRoutine(hass.Hass):
 
     def initialize(self):
-        # Fetch the hour and minute from input numbers, ensuring they are integers or floats
         try:
             hour = float(self.get_state("input_number.alarm_clock_hour"))
             minute = float(self.get_state("input_number.alarm_clock_minute"))
-            hourtype = type(hour)
-            minutetype = type(minute)
-            self.log(f"Hour: {hour}, Hour type: {hourtype}, Minute: {minute}, Minute type: {minutetype}")
+            self.log(f"Morning routine will run at Hour: {hour}, Minute: {minute}")
         except ValueError as e:
             self.log(f"Error fetching input numbers: {e}")
-            return  # Exit the initialization if there's an error
+            return
         
-        # Create a time object using the fetched values, ensuring they are integers or floats
         scheduled_time = datetime.time(int(hour), int(minute), 0)
-        
-        # Schedule the morning routine based on the fetched and calculated time
         self.run_daily(self.start_morning_routine, scheduled_time)
 
     def start_morning_routine(self, kwargs):
         self.log("running morning routine")
         mode = self.get_state("input_select.alarm_clock_thermostat_mode", default="off")
-        temperature = float(self.get_state("input_number.alarm_clock_temperature"))  # Ensure this is treated as a float if needed
+        temperature = float(self.get_state("input_number.alarm_clock_temperature"))
         
         if mode == "off":
-            self.set_thermostat(None)  # Turning off the thermostat
+            self.set_thermostat(None)
         else:
             self.set_thermostat(mode, temperature)
         self.set_lights()
