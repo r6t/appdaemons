@@ -7,12 +7,7 @@ class MorningRoutine(hass.Hass):
         # Fetch the hour and minute from input numbers, ensuring they are integers or floats
         try:
             hour = self.get_state("input_number.alarm_clock_hour")
-            if not isinstance(hour, (int, float)):
-                raise ValueError(f"Hour is not a numeric value: {hour}")
-            
             minute = self.get_state("input_number.alarm_clock_minute")
-            if not isinstance(minute, (int, float)):
-                raise ValueError(f"Minute is not a numeric value: {minute}")
         except ValueError as e:
             self.log(f"Error fetching input numbers: {e}")
             return  # Exit the initialization if there's an error
