@@ -8,8 +8,8 @@ class MorningRoutine(hass.Hass):
         try:
             hour = float(self.get_state("input_number.alarm_clock_hour"))
             minute = float(self.get_state("input_number.alarm_clock_minute"))
-            hourtype = type(self.get_state("input_select.alarm_clock_hour"))
-            minutetype = type(self.get_state("input_select.alarm_clock_minute"))
+            hourtype = type(hour)
+            minutetype = type(minute)
             self.log(f"Hour: {hour}, Hour type: {hourtype}, Minute: {minute}, Minute type: {minutetype}")
         except ValueError as e:
             self.log(f"Error fetching input numbers: {e}")
