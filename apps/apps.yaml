@@ -1,0 +1,8 @@
+---
+hello_world:
+  module: hello
+  class: HelloWorld
+
+morning_routine:
+  module: morningroutine
+  class: MorningRoutine
