@@ -6,8 +6,8 @@ class MorningRoutine(hass.Hass):
     def initialize(self):
         # Fetch the hour and minute from input numbers, ensuring they are integers or floats
         try:
-            hour = self.get_state("input_number.alarm_clock_hour")
-            minute = self.get_state("input_number.alarm_clock_minute")
+            hour = float(self.get_state("input_number.alarm_clock_hour"))
+            minute = float(self.get_state("input_number.alarm_clock_minute"))
             hourtype = type(self.get_state("input_select.alarm_clock_hour"))
             minutetype = type(self.get_state("input_select.alarm_clock_minute"))
             self.log(f"Hour: {hour}, Hour type: {hourtype}, Minute: {minute}, Minute type: {minutetype}")
