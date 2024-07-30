@@ -4,19 +4,13 @@ import datetime
 class MorningRoutine(hass.Hass):
 
     def initialize(self):
-        # Fetch the hour and minute from input numbers, ensuring they are integers or floats
         try:
             hour = self.get_state("input_number.alarm_clock_hour")
-            if not isinstance(hour, (int, float)):
-                raise ValueError(f"Hour is not a numeric value: {hour}")
             minute = self.get_state("input_number.alarm_clock_minute")
-            if not isinstance(minute, (int, float)):
-                raise ValueError(f"Minute is not a numeric value: {minute}")
         except ValueError as e:
             self.log(f"Error fetching input numbers: {e}")
-            return  # Exit the initialization if there's an error
+            return
         
-        # Create a time object using the fetched values, ensuring they are integers or floats
         scheduled_time = datetime.time(int(hour), int(minute), 0)
         
         # Schedule the morning routine based on the fetched and calculated time
@@ -53,3 +47,5 @@ class MorningRoutine(hass.Hass):
                           brightness_pct=100, 
                           effect="Mint")
         self.log("set_lights complete")
+
+
